@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    {{}}里面都可以写什么？
+    1.data中声明的
+    2.常量
+    3.js表达式
+    4.vue白名单里的东西
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <h1>{{'我是字符串'}}</h1>
+        <h1>{{1+1}}</h1>
+        <h1>{{Date.now()}}</h1>
+    </div>
+    
+    <script>
+        new Vue({
+        data:{
+            msg:'fadfsaaaas'
+        },
+        el:'#app'
+    }) 
+    </script>
+   
+</body>
+</html>

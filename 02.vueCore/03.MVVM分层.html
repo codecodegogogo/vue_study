@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    MVVM分层思想：M（model）数据，V（view）展示页面，VM（viewmodel）vue
+    <br>这是view
+    <h1>{{msg}}</h1>
+    <script>
+        // 这是viewmodel
+        new Vue({
+            // 这是model
+            data:{
+                msg:1
+            },
+            el:"h1"
+        })
+    </script>
+</body>
+</html>

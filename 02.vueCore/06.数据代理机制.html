@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <h1></h1>
+    <script>
+        let target={
+            name:'liu'
+        }
+        let proxy={}
+        // 将代理对象的属性和目标对象属性设置一致，障眼法
+        Object.defineProperty(proxy,'name',{
+            get(){
+                return target.name;
+            },
+            set(s){
+                target.name=s;
+            }
+        })
+
+
+        let temp={
+                name:'liu'
+            }
+            // vm此时便是代理对象
+        const vm=new Vue({
+            data:temp,
+            el:'h1'
+        })
+    </script>
+</body>
+</html>

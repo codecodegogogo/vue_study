@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    指令：当表达式的值改变时响应式的作于dom，以v-开始，写在
+    < html标签 指令:参数="表达式">表达式直接是js表达式，不用加{{}}< /html标签>
+    <br>有的指令不需要参数和表达式，有的需要参数和表达式，有的不需要参数需要表达式
+    <hr>
+    <div id="app">
+        v-once只渲染一次，之后被视为静态内容
+        <h1 v-once>{{msg}}</h1>
+        <h1>{{msg}}</h1>
+        <hr>
+        v-if="表达式" ,表达式的值为true则渲染，反之不会。
+        <h1 v-if="1>2">v-if测试</h1>
+        <h1 v-if="1>0">v-if测试</h1>
+        <hr>
+        v-bind:属性="表达式"动态绑定，标签渲染后会去除v-bind:，属性则变为html属性
+        <h1 v-bind:style="{color:'red'}">h1 v-bind:style="{color:'red'}"</h1>
+        v-bind注意要将red写为字符串，不然会当成变量
+        <h1 style="color: red;">h1 style="color: red;"</h1>
+        <br>v-bind简写
+        <h1 :styl='msg'>h1 :style=msg</h1>
+        不能使用如下写法
+        <!-- < h1 style={{msg}}> 会报错，不能作为标签内的属性 -->
+        <br>
+        <hr>
+        v-model标签是双向绑定，只能用在表单类标签（input，select，textarea）data<==>视图互相影响，<br>
+        v-bind是单项绑定，可以作用于各种标签，data==>识图
+        <br>
+        <h4>v-model 中的值应该是一个在 data 中定义的变量，而不是一个固定的值。</h4>
+        input<input type="text" v-model='msg'>
+        input<input type="text" v-model:value='msg'>
+    </div>
+    <script>
+        new Vue({
+            data:{
+                msg:'fsllkfk'
+            
+            },
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

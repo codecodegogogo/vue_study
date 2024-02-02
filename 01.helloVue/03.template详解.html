@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 不使用template，直接写入html，vue自动解析 -->
+        <h1>{{date}}</h1>
+    </div>
+    <script>
+        new Vue({
+            data:{
+                date:'2024.02.02'
+            },
+            // 不使用$mount进行挂载，使用el进行挂载
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

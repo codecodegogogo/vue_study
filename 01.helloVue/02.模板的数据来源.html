@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const myVue=new Vue({
+            // template :"<h1>我是张三，我喜欢vue</h1>",
+            // {{}}是vue的语法
+            template :`<h1>在{{site}},开发{{technology}},领导是{{lead.name}},他今年{{lead.age}},
+                他的员工有：{{people[0].name}},年龄是{{people[0].age}}.{{people[1].name}},年龄是{{people[1].age}}
+                </h1>`,
+            // data的选项是对象(数组对象嵌套)或者函数,使用对象的话要使用键值对的形式。
+            data:{
+                site:'济南',
+                technology:'js',
+                lead:{
+                    name:'张三',
+                    age:"23"
+                },
+                people:[{
+                    name:'李四',
+                    age:23
+                },{
+                    name:'王五',
+                    age:24
+                }]
+            }
+        })
+        myVue.$mount('#app')
+    </script>
+</body>
+</html>

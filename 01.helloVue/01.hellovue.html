@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <h1 id="app"></h1>
+    <script>
+        const myVue=new Vue({
+            // 可以写html代码或者vue自己的语法
+            // template只能有一个根节点，可以嵌套，只要发生改变就会重新编译
+            template:"<h1>hello</h1>"
+        })
+        // 每个vue对象都有一个挂载方法，将她附加在一个页面元素上
+        myVue.$mount('#app')
+    </script>
+</body>
+</html>

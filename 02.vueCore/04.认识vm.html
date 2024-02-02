@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <h1>{{msg}}</h1>
+    <script>
+        // vm对象有很多方法，其中以$开头的是给我们使用的，_开头的一般是给vue底层使用
+        const vm=new Vue({
+            data:{
+                msg:'hello'
+            },
+            el:'h1'
+        })
+    </script>
+</body>
+</html>
