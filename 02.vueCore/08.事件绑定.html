@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- <button id="app" v-on:click="say()">click</button> -->
+    <!-- <button id="app" v-on:click="say">click</button> -->
+    <!-- <button id="app" v-on:click="say(msg)">click</button> -->
+    <!-- <button id="app" v-on:click="say($event,msg)">click</button> -->
+    <!-- 简写 -->
+    <button id="app" @click="say($event,msg)">click</button>
+    <script>
+        const vm=new Vue({
+            el:'#app',
+            data:{
+                msg:1
+            },
+            methods:{
+                // 1.不传参有括号
+                // say(){
+                //     console.log("event:click")
+                // }
+
+                // 2.不传参无括号时可以打印事件对象 PointerEvent
+                // say(e){
+                //     console.log(e)
+                // }
+
+                // 3.传参
+                // say(e){
+                //     console.log(e)
+                // }
+
+                // 4.传参,并获取事件对象时可以用$event，位置可以变
+                say(e,a){
+                    console.log(e,a)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

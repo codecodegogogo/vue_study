@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 被vue操作都要限制在挂载的元素中 -->
+    <div id="app">
+            <input type="text" v-model="msg">
+            <!-- 此处也可以用函数 -->
+            <h1>{{reverse()}}</h1>
+            <h1>{{msg}}</h1>
+    </div>
+
+    <script>
+        const vm=new Vue({
+            data:{
+                msg:''
+            },
+            el:'#app',
+            methods:{
+            reverse(){
+                return this.msg.split('').reverse().join('')
+            }
+        }
+        })
+    </script>
+</body>
+</html>

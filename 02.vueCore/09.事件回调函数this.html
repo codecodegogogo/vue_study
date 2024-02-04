@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <button type="button" @click="add">+1</button>
+    <script>
+        const vm=new Vue({
+            data:{
+                counter:1
+            },
+            el:'button',
+            methods:{
+                // 箭头函数中没有this，他的this时继承父类，所以不要再这里写箭头函数
+                add(){
+                    // 必须写this.counter,因为所属对象不同，使用代理机制获取vm.counter
+                    console.log("this==vm?"+(this==vm))
+                    this.counter++
+                    console.log(this.counter)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

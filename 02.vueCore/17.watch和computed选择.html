@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    1.computed和watch如果都能够完成某个功能，优先选择computed
+<hr>
+    2.有一种情况下，必须使用watch，computed无法完成!
+        如果在程序当中采用了异步的方式，只能使用watch。
+        computed是基于依赖的缓存机制，只有在相关依赖变化时才会重新计算。
+        异步操作可能会导致计算的不确定性，因为在计算完成之前，无法确定最终的值。
+        而watch适用于监听数据的变化，并在变化发生时执行回调函数，更适合处理异步操作。
+
+        <hr>
+    3.什么时候使用箭头函数? 什么时候使用普通函数?
+        箭头函数的this指向继承上一级
+        看看这个函数是否属于Vue管理的。
+        是Vue管理的函数:统一写普通函数。
+        不是Vue管理的函数: 统一写箭头函数。
+</body>
+</html>

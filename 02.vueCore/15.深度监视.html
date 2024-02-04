@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const vm=new Vue({
+            data:{
+                // 多级对象,监视1级对象时看的是他的地址,
+                // 而在多级对象中内容改变时不会改变内存地址
+                dad:{
+                    son:''
+                }
+            },
+            el:'#app',
+            methods:{
+            
+            },
+            watch:{
+                dad:{
+                    // 启用深度监视
+                    deep:true,
+                    handler(n,o){
+                        console.log(n,o)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <h1>{{reverse}}</h1>
+    </div>
+        <script>
+            const vm=new Vue({
+                data:{
+                    msg:''
+                },
+                el:'#app',
+                methods:{           
+                },
+                computed:{
+                    reverse(){
+                        console.log("计算属性执行了.")
+                        return this.msg.split('').reverse().join('');
+                    }
+                },
+                watch:{
+                    msg:{
+                        // 是否页面打开时就加载
+                        immediate:true,
+                        // 固定函数
+                        handler(newValue,oldValue){
+                            console.log(newValue,oldValue)
+                        }
+                    }
+                }
+            })
+        </script>
+</body>
+</html>

@@ -26,7 +26,11 @@
                 set:function(a){
                     console.log('set执行了')
                     temp=a;
-                }
+                },
+                // 是否可以删除属性
+                configurable:false,
+                // 是否可以遍历属性
+                enumerable:true
             }
         )
     </script>

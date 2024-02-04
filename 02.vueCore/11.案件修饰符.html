@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        怎么获取某个键的按键修饰符?
+    第一步: 通过event.key获取这个键的真实名字。
+    第二步:将这个真实名字以kebab-case风格进行命名。
+    PageDown是真实名字。经过命名之后: page-down -->
+
+
+    <!-- 
+        按键修饰符是可以自定义的?
+    通过Vue的全局配置对象config来进行按键修饰符的自定义。
+    语法规则:
+    Vue.config.keyCodes.按键修饰符的名字 = 键值 -->
+
+
+    <!-- 系统修饰键:4个比较特殊的键
+    ctr1、alt、shift、meta(win/mac)
+    对于keydown事件来说:只要按下ctr1键，keydown事件就会触发。
+    对于keyup事件来说: 需要按下ctr1键，并且加上按下组合键，然后松开组合键之后，keyup事件才能触发 -->
+
+
+    <!-- enter up down left right tab(只接受keydown) delete space -->
+    <!-- <input id="app" @keyup="up">按钮</input> -->
+    <!-- 同时按住ctrl+c -->
+    <input id="app" @keyup.ctrl.c="up">按钮</input>
+    <!-- 按下delete时触发 -->
+    <!-- <input id="app" @keyup.delete="up">按钮</input> -->
+    <script>
+        const vm=new Vue({
+            data:{
+            },
+            el:'#app',
+            methods:{
+                up(e){
+                    alert(e.key)
+                    alert(event.target.value)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

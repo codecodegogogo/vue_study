@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <h1>{{reverse}}</h1>
+    </div>
+        <script>
+            const vm=new Vue({
+                data:{
+                    msg:''
+                },
+                el:'#app',
+                methods:{
+                
+                },
+
+
+                // Computed属性下函数内容时 箭头函数()=>会获取不到目标:
+
+                
+                computed:{
+                    // reverse:{
+                    //     get(){
+                    //         // computed有缓存机制,什么时候会改变?
+                    //         // 1.第一次调用方法时   2.所引用的数据发生改变时
+                    //         console.log("计算属性执行了.")
+                    //         return this.msg.split('').reverse().join('');
+                    //     },
+                    //     set(e){
+                    //         this.msg=e.split('').reverse().join('');
+                    //     },
+                        // }
+
+                    // 由于很少用set,故可以简写为: 但是在调用时写reverse,而不是reverse()
+                    reverse(){
+                        console.log("计算属性执行了.")
+                        return this.msg.split('').reverse().join('');
+                    
+
+                    }
+                }
+            })
+        </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+        <div id="app">
+                    <!-- 默认点击后会跳转，通过修饰符.prevent来阻止 -->
+            <!-- <div>
+                <div>
+                    <button @click.prevent="say">
+                        <a href="https://www.baidu.com">我是按钮</a>
+                    </button>
+                </div>
+            </div> -->
+            
+            <hr>
+            
+            <!-- 点击后事件会冒泡，顺序为123（默认冒泡） -->
+            <!-- 通过.stop修饰符组织冒泡 -->
+            <!-- <div @click="three">
+                <div @click="two">
+                    <button @click.stop="one">
+                        我是按钮
+                    </button>
+                </div>
+            </div> -->
+
+            <hr>
+            <!-- 通过capture进行捕获，由外道内（和冒泡相反）,如下，只会对three进行捕获，里面的依然冒泡 -->
+             <!-- <div @click.capture="three">
+                <div @click="two">
+                    <button @click="one">
+                        我是按钮
+                    </button>
+                </div>
+            </div> -->
+
+
+            <hr>
+            <!-- 只执行自己触发的行为:  .self -->
+            <!-- <div @click="three">
+                <div @click.self="two">
+                    <button @click="one">
+                        我是按钮
+                    </button>
+                </div>
+            </div> -->
+
+            <hr>
+            <!-- 事件只发生一次  .once -->
+            <div @click="three">
+                <div @click.once="two">
+                    <button @click="one">
+                        我是按钮
+                    </button>
+                </div>
+            </div>
+
+            <!-- .passive 消除阻止行为，优先执行默认行为,和.prevent不共用 -->
+
+        </div>
+ 
+    <script>
+        const vm=new Vue({
+            data:{
+                msg:1
+            },
+            el:'#app',
+            methods:{
+                say(){
+                    // 默认点击后会跳转，通过event.preventDefault()来阻止
+                    console.log("say")
+                    // event.preventDefault()
+                },
+                one(){
+                    alert(1)
+                    // 阻止冒泡通过stopPropagation方法
+                    // event.stopPropagation()
+                },
+                two(){
+                    alert(2)
+                },
+                three(){
+                    alert(3)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
