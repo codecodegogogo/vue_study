@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- template只起到占位符作用,渲染后消失 -->
+        <template>
+            <!-- v-show呢如果条件为false，运行后，还是生成了条件为false所在的标签，
+            但是只是让其display属性为none，即该标签不进行显示 -->
+            <button v-show="false">我是按钮</button>
+            <button v-show="true">我是按钮</button>
+        </template>
+    </div>
+    <script> 
+        const vm=new Vue({
+            data:{
+                
+            },
+            el:'#app',
+            methods:{
+            
+            },
+        })
+    </script>
+</body>
+</html>

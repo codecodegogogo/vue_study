@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        div div{
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+        .small{
+            width: 50px;
+            height: 50px;
+        }
+        .big{
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class='c1' @click="small"></div>
+        <hr>
+        <div :class='c2' @click="big"></div>
+    </div>
+    <script>
+        const vm=new Vue({
+            data:{
+                c1:['1'],
+                c2:{'1':true,
+                    '2':false,
+                    '3':true}
+            },
+            el:'#app',
+            methods:{
+                small(){
+                    this.c1=(this.c1=='small'?'1':'small')
+                },
+                big(){
+                    this.c2=(this.c2=='big'?'1':'big')
+                }
+            },
+        })
+    </script>
+</body>
+</html>

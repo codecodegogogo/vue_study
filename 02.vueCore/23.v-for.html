@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-for遍历值 -->
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>电话</th> 
+            </tr>
+
+            <!-- v-for放在循环出现的元素上，类似于for in语法，第二项为序号 -->
+
+            <!-- <tr v-for="info,index of infos">
+                <td>{{index}}</td>
+                <td>{{info.name}}</td>
+                <td>{{info.age}}</td>
+                <td>{{info.number}}</td>
+            </tr>  -->
+            <!-- 上面这种方法会出现虚拟dom和真实dom的id不同导致相同元素不能复用的问题，因此使用key关键字设置自己的id -->
+            <tr v-for="info,index of infos":key="info.key">
+                <td>{{info.key}}</td>
+                <td>{{info.name}}</td>
+                <td>{{info.age}}</td>
+                <td>{{info.number}}</td>
+            </tr>
+        </table>
+
+        <!-- 循环对象属性和值 -->
+        <h3 v-for="value,key in valueKeys">{{key}}:{{value}}</h3>
+    </div>
+   
+    <script>
+        const vm=new Vue({
+            data:{
+                infos:[{
+                    key:1,
+                    name:'张三',
+                    age:22,
+                    number:'1234556'
+                },{
+                    key:2,
+                    name:'李四',
+                    age:22,
+                    number:'5234344'
+                }],
+                valueKeys:{
+                    name:'wangwu',
+                    age:11
+                }
+            },
+            el:'#app',
+            methods:{
+            
+            },
+        })
+    </script>
+</body>
+</html>

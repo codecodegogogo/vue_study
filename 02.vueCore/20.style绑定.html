@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- <div id="app" :style="c1" > -->
+        <!-- 复合属性带{}，且属性值带‘’ -->
+    <div id="app" :style="{color:'red'}" >
+        点我
+    </div>
+    <script>
+        const vm=new Vue({
+            data:{
+                // 对象形式，带有-的属性如：bgcolor，采用驼峰式写法
+                c1:{
+                    width:"300px",
+                    height:"300px",
+                    backgroundColor:'red'
+                }
+            },
+            el:'#app',
+            methods:{
+                
+            },
+        })
+    </script>
+</body>
+</html>

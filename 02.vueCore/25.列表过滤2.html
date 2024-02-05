@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        table,td,th{
+            border:1px solid rgb(6, 0, 0);
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>使用computed进行过滤</h1>
+        <input type="text" v-model="keywords">
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>电话</th> 
+            </tr>
+            <tr v-for="info,index of filterInfors":key="info.key">
+                <td>{{info.key}}</td>
+                <td>{{info.name}}</td>
+                <td>{{info.age}}</td>
+                <td>{{info.number}}</td>
+            </tr>
+        </table>
+    </div>
+   
+    <script>
+        const vm=new Vue({
+            data:{
+                keywords:'',
+                infos:[{
+                    key:1,
+                    name:'张三',
+                    age:22,
+                    number:'1234556'
+                },{
+                    key:2,
+                    name:'李四',
+                    age:22,
+                    number:'5234344'
+                }]
+            },
+            el:'#app',
+            computed:{
+                filterInfors(){
+                    return this.infos.filter((info)=>{
+                           return info.name.indexOf(this.keywords)>=0
+                        })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
