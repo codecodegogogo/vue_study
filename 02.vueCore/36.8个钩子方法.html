@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{count}}</h1>
+        <button @click="add">+1</button>
+        <button @click="destroy">销毁</button>
+    </div>
+    <script>
+        const vm=new Vue({
+            data:{
+                count:1
+            },
+            el:'#app',
+            methods:{
+                add(){
+                    this.count++
+                },
+                say(){
+                    console.log("hello")
+                },
+                destroy(){
+                    this.$destroy()
+                },
+            },
+                beforeCreate(){
+                        // this.say()
+                        console.log("beforeCreate")
+                    },
+                created(){
+                    console.log("created")
+                },
+                beforeMount(){
+                    // debugger
+                    console.log("beforeMount")
+                },
+                mounted(){
+                    console.log("mounted")
+                },
+                // 数据显示发生变化时调用
+                beforeUpdate(){
+                    console.log("beforeUpdate")
+                },
+                updated(){
+                    console.log("updated")
+                },
+                // 对象销毁时调用
+                beforeDestroy(){
+                    console.log("beforeDestroy")
+                },
+                destroyed(){
+                    this.say()
+                    this.count=100
+                    console.log("destryed")
+                },
+        })
+    </script>
+</body>
+</html>

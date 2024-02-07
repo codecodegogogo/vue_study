@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 1. 在Vue当中是可以使用自闭合标签的，但是前提必须在脚手架环境中使用。
+        2. 在创建组件的时候Vue.extend()可以省略，但是底层实际上还是会调用的，在注册组件的时候会调用。
+        3. 组件的名字
+            第一种：全部小写
+            第二种：首字母大写，后面都是小写
+            第三种：kebab-case命名法（串式命名法。例如：user-login）
+            第四种：CamelCase命名法（驼峰式命名法。例如：UserLogin），但是这种方式只允许在脚手架环境中使用。
+            不要使用HTML内置的标签名作为组件的名字。
+            在创建组件的时候，通过配置项配置一个name，这个name不是组件的名字，是设置Vue开发者工具中显示的组件的名字。 -->
+    使用全局注册方式
+    <div id="app2">
+        <userlogin></userlogin>
+    </div>
+    <script>
+        
+       const userLoginComponent={
+        // template中只能有一个根标签
+
+        template:
+        `
+        <div id="app">
+            <h1>账号登录</h1>
+            <form action="" method="get" @submit.prevent="login">
+                账号：<input type="text" v-model="username"><br>
+                密码: <input type="password" v-model="password">
+                <button>登录</button>
+            </form>
+        </div>
+        `,
+        // data:function(){
+        data(){
+            return {
+              username:'',
+              password:''  
+            }             
+        },
+        methods:{
+            login(){
+                alert(this.username+" "+this.password)
+            }
+        }
+    }
+    // 全局注册要在vue实例创建前
+    // “全局注册组件”这一步，会将组件放入一个全局的组件池中。
+    // 创建Vue实例时会触发一次同步render，如果页面模板中使用了组件，
+    // 那么会去components中，或者全局的组件池中查找，如果没找到，那么render的结果就不是我们想要的结果。
+
+    // 报错：Unknown custom element: <userlogin> - did you register the component correctly? 
+    //     For recursive components, make sure to provide the "name" option.
+    Vue.component('userlogin',userLoginComponent)
+
+    const vm=new Vue({
+            el:'#app2'
+        })
+
+    </script>
+    
+    
+</body>
+</html>

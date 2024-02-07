@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre style="font-size: 22px;">
+        Vue 的生命周期指的是: vm 对象从创建到最终销毁的整个过程
+    1.虚拟 DOM 在内存中就绪时，去调用一个 a 函数
+    2.虚拟 DOM 转换成真实 DOM 渲染到页面时: 去调用一个 b 函数
+    3.Vue 的 data 发生改变时: 去调用一个 c 函数
+    4....
+    5.Vue 实例被销毁时: 去调用一个x 函数
+
+    在生命线上的函数叫做钩子函数，这些函数是不需要程序员手动调用的，由 Vue 自动调用，
+    程序员只需要按照自己的需求写上，到了那个时间点自动就会执行。
+
+    初始阶段
+   beforeCreate()
+    created()
+    挂载阶段
+    beforeMount()
+    mounted()
+    更新阶段
+    beforeUpdate()
+    updated()
+    销毁阶段
+    beforeDestroy()
+    destroyed() 
+    </pre>
+   
+</body>
+</html>
