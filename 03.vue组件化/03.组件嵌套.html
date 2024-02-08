@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"><vc></vc></div>
+    <script>
+        const vc2={
+            data(){
+                return {
+                    msg2:'我是msg2',
+                }
+            },
+            template:`<div>{{msg2}}</div>`
+        }
+
+        const vc={
+            data(){
+                return {
+                    msg1:'我是msg1',
+                }
+            },
+            template:`<div>{{msg1}}<vc2></vc2></div>`,
+            components:{vc2,vc2}
+        }
+
+        
+        Vue.component('vc',vc)
+        const vm=new Vue({
+            el:'#app'
+        } 
+        )
+    </script>
+</body>
+</html>
